@@ -188,15 +188,11 @@ return packer.startup(function(use)
       require("config.nullls")
     end
   }
-  --
-  -- use { 'rust-lang/rust.vim',
-  --   ft = { "rs", "rust", "toml" },
-  --   config = function()
-  --     --vim.g.rustfmt_autosave = 1
-  --   end
-  -- }
-  --
 
+  use { 'simrat39/rust-tools.nvim',
+    config = function()
+    end
+  }
   use { 'mfussenegger/nvim-dap',
     config = function()
       require("config.dap")

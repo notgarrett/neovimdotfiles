@@ -126,3 +126,5 @@ local DEFAULT_SETTINGS_LSP = {
 }
 
 require("mason-lspconfig").setup()
+
+

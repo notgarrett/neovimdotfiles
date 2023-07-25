@@ -22,34 +22,34 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
-map("n", "<leader>q", "<CMD>wq<CR>", opts)
+map("n", "<leader>q", "<CMD>Bdelete<CR>", opts)
 
 map(
-        "n",
-        "<leader>fb",
-        "<Cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",
-        { noremap = true }
+  "n",
+  "<leader>fb",
+  "<Cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",
+  { noremap = true }
 )
 
 map(
-        "n",
-        "<leader>ff",
-        "<Cmd>Telescope find_files<CR>",
-        { noremap = true }
+  "n",
+  "<leader>ff",
+  "<Cmd>Telescope find_files<CR>",
+  { noremap = true }
 )
 
 map(
-        "n",
-        "<leader>fr",
-        "<Cmd>Telescope oldfiles<CR>",
-        { noremap = true }
+  "n",
+  "<leader>fr",
+  "<Cmd>Telescope oldfiles<CR>",
+  { noremap = true }
 )
 
 map(
-        "n",
-        "<leader><leader>",
-        "<Cmd>Telescope oldfiles<CR>",
-        { noremap = true }
+  "n",
+  "<leader><leader>",
+  "<Cmd>Telescope oldfiles<CR>",
+  { noremap = true }
 )
 
 
@@ -100,4 +100,3 @@ map('n', "<leader>xc", "<CMD>NvimTreeClose<CR>", opts)
 
 
 -- Debugging
-
