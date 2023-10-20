@@ -60,6 +60,15 @@ return packer.startup(function(use)
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
       "lvimuser/lsp-inlayhints.nvim",
+      "kdheepak/cmp-latex-symbols"
+    },
+    srouces = {
+      {
+        name = "latex_symbols",
+        option = {
+          strategy = 0, -- mixed
+        },
+      },
     },
     config = function()
       require('config.cmp');
@@ -198,6 +207,8 @@ return packer.startup(function(use)
       require("config.dap")
     end
   }
+
+  use { 'dccsillag/magma-nvim', run = ':UpdateRemotePlugins' }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

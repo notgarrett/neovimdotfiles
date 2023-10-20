@@ -98,5 +98,24 @@ map('n', "<leader>xc", "<CMD>NvimTreeClose<CR>", opts)
 --vim.api.nvim_set_keymap('n', '<Leader>e', ":lua require'config.nvim-tree'.toggle_tree()<CR>", { noremap = true, silent = true })
 --
 
+-- Magma
+--
+-- nnoremap <silent><expr> <LocalLeader>r  :MagmaEvaluateOperator<CR>
+-- nnoremap <silent>       <LocalLeader>rr :MagmaEvaluateLine<CR>
+-- xnoremap <silent>       <LocalLeader>r  :<C-u>MagmaEvaluateVisual<CR>
+-- nnoremap <silent>       <LocalLeader>rc :MagmaReevaluateCell<CR>
+-- nnoremap <silent>       <LocalLeader>rd :MagmaDelete<CR>
+-- nnoremap <silent>       <LocalLeader>ro :MagmaShowOutput<CR>
+
+map('n', '<leader>r', "<CMD>MagmaEvluateOperator<CR>", opts)
+map('n', '<leader>rr', "<CMD>MagmaEvaluateLine<CR>", opts)
+map('v', '<leader>r', "<CMD>MagmaEvluateVisual<CR>", opts)
+map('n', '<leader>rc', "<CMD>MagmaReevluateCell<CR>", opts)
+map('n', '<leader>rd', "<CMD>MagmaDelete<CR>", opts)
+map('n', '<leader>ro', "<CMD>MagmaShowOutput<CR>", opts)
+
+
+vim.g.magma_automatically_open_output = false
+vim.g.magma_image_provider = "kitty"
 
 -- Debugging

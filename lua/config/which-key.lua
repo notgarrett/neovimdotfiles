@@ -78,6 +78,17 @@ local opts = {
     nowait = true, -- use `nowait` when creating keymaps
 }
 
+local opts2 = {
+    mode = "v", -- VISUAL mode
+    prefix = "<leader>",
+    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+    silent = true, -- use `silent` when creating keymaps
+    noremap = true, -- use `noremap` when creating keymaps
+    nowait = true, -- use `nowait` when creating keymaps
+}
+
+
+
 local mappings = {
 
     x = {
@@ -97,13 +108,29 @@ local mappings = {
 
         name = "Window Split"
     },
-    c = {
-        name = "Comment",
-        c = "Inline Comment",
-        b = "Block Comment"
-    },
-    ["<Leader>"] = "Recent Files"
+    -- c = {
+    --     name = "Comment",
+    --     c = "Inline Comment",
+    --     b = "Block Comment"
+    -- },
+    ["<Leader>"] = "Recent Files",
+    r = {
+      name = "Magma",
+      r = "Magma Evaluate operator",
+      rr = "Magma Evaluate Line",
+      rc = "Magma Reevalute Cell",
+      rd = "Magma Delete",
+      ro = "Magma Show Output"
+    }
+}
+
+local mappings2 = {
+ r = {
+   name = "Magma",
+   r = "Magma Evaluate Visual"
+ }
 }
 
 which_key.setup(setup)
 which_key.register(mappings, opts)
+which_key.register(mappings2, opts2)
