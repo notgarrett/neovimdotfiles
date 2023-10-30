@@ -143,7 +143,7 @@ return packer.startup(function(use)
   }
 
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    'nvim-telescope/telescope.nvim', tag = '0.1.4',
     -- or                            , branch = '0.1.x',
     requires = { { 'nvim-lua/plenary.nvim' }
     },
@@ -208,8 +208,9 @@ return packer.startup(function(use)
     end
   }
 
-  use { 'dccsillag/magma-nvim', run = ':UpdateRemotePlugins' }
-
+  use { "kiyoon/jupynium.nvim", run = "conda run --no-capture-output -n jupynium pip install ." }
+  use { "rcarriga/nvim-notify" }   -- optional
+  use { "stevearc/dressing.nvim" } -- optional, UI for :JupyniumKernelSelect
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
