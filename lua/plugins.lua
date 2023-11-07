@@ -60,7 +60,8 @@ return packer.startup(function(use)
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
       "lvimuser/lsp-inlayhints.nvim",
-      "kdheepak/cmp-latex-symbols"
+      "kdheepak/cmp-latex-symbols",
+      "PaterJason/cmp-conjure"
     },
     srouces = {
       {
@@ -84,6 +85,10 @@ return packer.startup(function(use)
     end,
     run = ":MasonUpdate", -- :MasonUpdate updates registry contents
 
+  }
+
+  use {
+    'Olical/conjure',
   }
 
   use {
