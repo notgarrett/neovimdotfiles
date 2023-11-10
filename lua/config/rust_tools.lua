@@ -23,7 +23,7 @@ local opts = {
 
       -- whether to show parameter hints with the inlay hints or not
       -- default: true
-      show_parameter_hints = false,
+      show_parameter_hints = true,
 
       -- prefix for parameter hints
       -- default: "<-"
@@ -158,13 +158,10 @@ local opts = {
   -- these override the defaults set by rust-tools.nvim
   -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
   server = {
-    on_attach = function(_, bufnr)
-      -- Hover actions
-      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-      -- Code action groups
-      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-    end,
-  },
+    -- standalone file support
+    -- setting it to false may improve startup time
+    standalone = true,
+  }, -- rust-analyzer options
 
   -- debugging stuff
   dap = {
