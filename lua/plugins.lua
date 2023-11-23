@@ -212,6 +212,8 @@ return packer.startup(function(use)
     end
   }
 
+  use { 'luochen1990/rainbow' }
+
   use { "kiyoon/jupynium.nvim", run = "conda run --no-capture-output -n jupynium pip install ." }
   use { "rcarriga/nvim-notify" }   -- optional
   use { "stevearc/dressing.nvim" } -- optional, UI for :JupyniumKernelSelect
