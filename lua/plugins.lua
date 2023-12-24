@@ -88,6 +88,7 @@ return packer.startup(function(use)
 
   use {
     'Olical/conjure',
+    ft = { 'clojure' }
   }
 
   use {
@@ -212,7 +213,8 @@ return packer.startup(function(use)
     end
   }
 
-  use { 'luochen1990/rainbow' }
+  use { 'luochen1990/rainbow',
+    ft = { 'clojure' } }
 
   use { "kiyoon/jupynium.nvim", run = "conda run --no-capture-output -n jupynium pip install ." }
   use { "rcarriga/nvim-notify" }   -- optional

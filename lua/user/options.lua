@@ -6,7 +6,7 @@
 -- disable netrw at the very start of your init.lua (strongly advised)
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.g.rainbow_active = 0
+vim.g.rainbow_active = 1
 
 local options = {
   backup = false,                          -- creates a backup file
