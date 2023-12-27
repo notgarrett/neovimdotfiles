@@ -28,29 +28,29 @@ map(
   "n",
   "<leader>fb",
   "<Cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",
-  { noremap = true }
+  opts
 )
 
 map(
   "n",
   "<leader>ff",
   "<Cmd>Telescope find_files<CR>",
-  { noremap = true }
+  opts
 )
 
 map(
   "n",
   "<leader>fr",
   "<Cmd>Telescope oldfiles<CR>",
-  { noremap = true }
+  opts
 )
 
 map(
   "n",
   "<leader><leader>",
   "<Cmd>Telescope oldfiles<CR>",
-  { noremap = true }
-)
+  opts
+  )
 
 
 -- Move to previous/next
@@ -85,6 +85,7 @@ map('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
 -- Magic buffer-picking mode
 map('n', '<C-p>', '<Cmd>BufferPick<CR>', opts)
 -- Sort automatically by...
+
 map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
 map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
 map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
@@ -92,30 +93,5 @@ map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 
 map('n', "<leader>xo", "<CMD>NvimTreeOpen<CR>", opts)
 map('n', "<leader>xc", "<CMD>NvimTreeClose<CR>", opts)
--- Other:
--- :BarbarEnable - enables barbar (enabled by default)
--- :BarbarDisable - very bad command, should never be used
---vim.api.nvim_set_keymap('n', '<Leader>e', ":lua require'config.nvim-tree'.toggle_tree()<CR>", { noremap = true, silent = true })
---
-
--- Magma
---
--- nnoremap <silent><expr> <LocalLeader>r  :MagmaEvaluateOperator<CR>
--- nnoremap <silent>       <LocalLeader>rr :MagmaEvaluateLine<CR>
--- xnoremap <silent>       <LocalLeader>r  :<C-u>MagmaEvaluateVisual<CR>
--- nnoremap <silent>       <LocalLeader>rc :MagmaReevaluateCell<CR>
--- nnoremap <silent>       <LocalLeader>rd :MagmaDelete<CR>
--- nnoremap <silent>       <LocalLeader>ro :MagmaShowOutput<CR>
-
-map('n', '<leader>r', "<CMD>MagmaEvluateOperator<CR>", opts)
-map('n', '<leader>rr', "<CMD>MagmaEvaluateLine<CR>", opts)
-map('v', '<leader>r', "<CMD>MagmaEvluateVisual<CR>", opts)
-map('n', '<leader>rc', "<CMD>MagmaReevluateCell<CR>", opts)
-map('n', '<leader>rd', "<CMD>MagmaDelete<CR>", opts)
-map('n', '<leader>ro', "<CMD>MagmaShowOutput<CR>", opts)
-
-
-vim.g.magma_automatically_open_output = false
-vim.g.magma_image_provider = "kitty"
 
 -- Debugging

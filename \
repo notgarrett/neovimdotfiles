@@ -64,7 +64,7 @@ return packer.startup(function(use)
       'hrsh7th/cmp-cmdline',
       "lvimuser/lsp-inlayhints.nvim",
       "kdheepak/cmp-latex-symbols",
-      -- "PaterJason/cmp-conjure"
+      "PaterJason/cmp-conjure"
     },
     srouces = {
       {
@@ -96,15 +96,15 @@ return packer.startup(function(use)
 
   --------------------------------------------------
   -- Clojure Based Plugins
-  --
-  -- use {
-  --   'Olical/conjure',
-  -- }
-  --
-  --
-  -- use { 'luochen1990/rainbow',
-  --   ft = { 'clojure' } }
-  --
+
+  use {
+    'Olical/conjure',
+  }
+
+
+  use { 'luochen1990/rainbow',
+    ft = { 'clojure' } }
+
   --------------------------------------------------
 
   -- Rust things
