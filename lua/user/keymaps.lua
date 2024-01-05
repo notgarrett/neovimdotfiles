@@ -5,7 +5,6 @@
 ---
 local opts = { noremap = true, silent = true }
 
-local term_opts = { silent = true }
 
 -- Shorten function name
 local map = vim.api.nvim_set_keymap
@@ -22,35 +21,43 @@ vim.g.maplocalleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- Some custom mappins that seem hella useful
+--
+
+map("v", "J", ":m '>+1<CR>gv=gv", opts)
+map("v", "K", ":m '<-2<CR>gv=gv", opts)
+
+-- Telescope and buffer things below it seems
+
 map("n", "<leader>q", "<CMD>Bdelete<CR>", opts)
 
 map(
-  "n",
-  "<leader>fb",
-  "<Cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",
-  opts
+	"n",
+	"<leader>fb",
+	"<Cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",
+	opts
 )
 
 map(
-  "n",
-  "<leader>ff",
-  "<Cmd>Telescope find_files<CR>",
-  opts
+	"n",
+	"<leader>ff",
+	"<Cmd>Telescope find_files<CR>",
+	opts
 )
 
 map(
-  "n",
-  "<leader>fr",
-  "<Cmd>Telescope oldfiles<CR>",
-  opts
+	"n",
+	"<leader>fr",
+	"<Cmd>Telescope oldfiles<CR>",
+	opts
 )
 
 map(
-  "n",
-  "<leader><leader>",
-  "<Cmd>Telescope oldfiles<CR>",
-  opts
-  )
+	"n",
+	"<leader><leader>",
+	"<Cmd>Telescope oldfiles<CR>",
+	opts
+)
 
 
 -- Move to previous/next
@@ -95,3 +102,13 @@ map('n', "<leader>xo", "<CMD>NvimTreeOpen<CR>", opts)
 map('n', "<leader>xc", "<CMD>NvimTreeClose<CR>", opts)
 
 -- Debugging
+--
+
+function widget()
+	local widgets = require('dap.ui.widgets');
+	local sidebar = widgets.sidebar(widgets.scopes);
+	sidebar.open();
+end
+
+map('n', "<leader>db", "<CMD>DapToggleBreakpoint<CR>", opts)
+map('n', "<leader>du", '<CMD>:lua widget()<CR>', opts)

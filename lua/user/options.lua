@@ -8,6 +8,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.rainbow_active = 0
 
+
 local options = {
   backup = false,                          -- creates a backup file
   clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
@@ -29,7 +30,7 @@ local options = {
   termguicolors = true,                    -- set term gui colors (most terminals support this)
   timeoutlen = 300,                        -- time to wait for a mapped sequence to complete (in milliseconds)
   undofile = true,                         -- enable persistent undo
-  updatetime = 300,                        -- faster completion (4000ms default)
+  updatetime = 50,                        -- faster completion (4000ms default)
   writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
   expandtab = true,                        -- convert tabs to spaces
   shiftwidth = 2,                          -- the number of spaces inserted for each indentation

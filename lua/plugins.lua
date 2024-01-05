@@ -201,12 +201,21 @@ return packer.startup(function(use)
   }
 
   use { "moll/vim-bbye" }
+
+
   use { "nvim-treesitter/nvim-treesitter",
+    requires = { { "nvim-treesitter/nvim-treesitter-refactor" } },
+    config = function()
+      require("config.treesitter")
+    end,
     run = ":TSUpdate",
   }
 
+
+
   use { 'nvim-telescope/telescope-fzf-native.nvim', run =
   'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
+
   use { 'ggandor/leap.nvim',
     requires = { { "tpope/vim-repeat" } },
     config = function()
@@ -228,6 +237,7 @@ return packer.startup(function(use)
   }
 
   use { 'mfussenegger/nvim-dap',
+    requires = { { "mfussenegger/nvim-dap" } },
     config = function()
       require("config.dap")
     end

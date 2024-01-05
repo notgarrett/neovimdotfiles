@@ -108,6 +108,11 @@ local mappings = {
 
     name = "Window Split"
   },
+  d = {
+    name = "Debugging",
+    b = "Toggle Breakpoint",
+    u = "Open UI"
+  },
   -- c = {
   --     name = "Comment",
   --     c = "Inline Comment",
