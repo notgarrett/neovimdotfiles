@@ -244,6 +244,12 @@ return packer.startup(function(use)
   }
 
   use { "rcarriga/nvim-notify" } -- optional
+  use { "stevearc/dressing.nvim",
+    config = function()
+      require('dressing').setup()
+    end
+  }
+
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
