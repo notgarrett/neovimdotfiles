@@ -120,13 +120,23 @@ return packer.startup(function(use)
       require("config.comment")
     end
   }
+  --
+  -- use { "catppuccin/nvim",
+  --   as = "catppuccin",
+  --   config = function()
+  --     require("config.catpuccin")
+  --   end
+  --
+  -- }
+  --
+  --
 
-  use { "catppuccin/nvim",
-    as = "catppuccin",
+  use { "ellisonleao/gruvbox.nvim",
     config = function()
-      require("config.catpuccin")
+      require("gruvbox").setup()
+      vim.o.background = "dark" -- or "light" for light mode
+      vim.cmd([[colorscheme gruvbox]])
     end
-
   }
 
   use {
@@ -236,13 +246,13 @@ return packer.startup(function(use)
     end
   }
 
+
   use { 'mfussenegger/nvim-dap',
-    requires = { { "mfussenegger/nvim-dap" } },
+    requires = { { "rcarriga/nvim-dap-ui" } },
     config = function()
       require("config.dap")
     end
   }
-
   use { "rcarriga/nvim-notify" } -- optional
   use { "stevearc/dressing.nvim",
     config = function()

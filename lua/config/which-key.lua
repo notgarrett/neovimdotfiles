@@ -111,7 +111,10 @@ local mappings = {
   d = {
     name = "Debugging",
     b = "Toggle Breakpoint",
-    u = "Open UI"
+    o = "Step Over",
+    i = "Step Into",
+    c = "Continue",
+    t = "Terminate"
   },
   -- c = {
   --     name = "Comment",

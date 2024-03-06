@@ -32,31 +32,31 @@ map("v", "K", ":m '<-2<CR>gv=gv", opts)
 map("n", "<leader>q", "<CMD>Bdelete<CR>", opts)
 
 map(
-	"n",
-	"<leader>fb",
-	"<Cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",
-	opts
+  "n",
+  "<leader>fb",
+  "<Cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",
+  opts
 )
 
 map(
-	"n",
-	"<leader>ff",
-	"<Cmd>Telescope find_files<CR>",
-	opts
+  "n",
+  "<leader>ff",
+  "<Cmd>Telescope find_files<CR>",
+  opts
 )
 
 map(
-	"n",
-	"<leader>fr",
-	"<Cmd>Telescope oldfiles<CR>",
-	opts
+  "n",
+  "<leader>fr",
+  "<Cmd>Telescope oldfiles<CR>",
+  opts
 )
 
 map(
-	"n",
-	"<leader><leader>",
-	"<Cmd>Telescope oldfiles<CR>",
-	opts
+  "n",
+  "<leader><leader>",
+  "<Cmd>Telescope oldfiles<CR>",
+  opts
 )
 
 
@@ -104,11 +104,14 @@ map('n', "<leader>xc", "<CMD>NvimTreeClose<CR>", opts)
 -- Debugging
 --
 
-function widget()
-	local widgets = require('dap.ui.widgets');
-	local sidebar = widgets.sidebar(widgets.scopes);
-	sidebar.open();
+local function widget()
+  local widgets = require('dap.ui.widgets');
+  local sidebar = widgets.sidebar(widgets.scopes);
+  sidebar.open();
 end
 
 map('n', "<leader>db", "<CMD>DapToggleBreakpoint<CR>", opts)
-map('n', "<leader>du", '<CMD>:lua widget()<CR>', opts)
+map('n', "<leader>do", "<CMD>DapStepOver<CR>", opts)
+map('n', "<leader>di", "<CMD>DapStepInto<CR>", opts)
+map('n', "<leader>dc", "<CMD>DapContinue<CR>", opts)
+map('n', "<leader>dt", "<CMD>DapTerminate<CR>", opts)
