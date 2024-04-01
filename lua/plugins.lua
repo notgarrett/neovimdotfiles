@@ -190,7 +190,7 @@ return packer.startup(function(use)
 
   use {
     "nvim-telescope/telescope-file-browser.nvim",
-    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim",  },
     config = function()
       require("config.file-browser")
     end
@@ -212,6 +212,7 @@ return packer.startup(function(use)
 
   use { "moll/vim-bbye" }
 
+use { "nvim-neotest/nvim-nio" }
 
   use { "nvim-treesitter/nvim-treesitter",
     requires = { { "nvim-treesitter/nvim-treesitter-refactor" } },
