@@ -167,7 +167,7 @@ local opts = {
   dap = {
     adapter = {
       type = "executable",
-      command = "lldb-vscode",
+      command = "lldb-dap",
       name = "rt_lldb",
     },
   },

@@ -1,23 +1,91 @@
 -- Add additional capabilities supported by nvim-cmp
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+-- Mason does not work on nix :()
+-- require("mason-lspconfig").setup_handlers {
+--   -- The first entry (without a key) will be the default handler
+--   -- and will be called for each installed server that doesn't have
+--   -- a dedicated handler.
+--   function(server_name) -- default handler (optional)
+--     require("lspconfig")[server_name].setup {
+--
+--     } end,
+--   -- Next, you can provide a dedicated handler for specific servers.
+--   -- For example, a handler override for the `rust_analyzer`:
+--   --
+--
+--   ["rust_analyzer"] = function()
+--     require("config.rust_tools")
+--   end
+-- }
+--
+--
+local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+local lsp_zero = require('lsp-zero')
+-- I plan to set up a lsp_zero config in the future.
 
-require("mason-lspconfig").setup_handlers {
-  -- The first entry (without a key) will be the default handler
-  -- and will be called for each installed server that doesn't have
-  -- a dedicated handler.
-  function(server_name) -- default handler (optional)
-    require("lspconfig")[server_name].setup {
 
+lsp_zero.on_attach(function(client, bufnr)
+  -- see :help lsp-zero-keybindings
+  -- to learn the available actions
+  lsp_zero.default_keymaps({ buffer = bufnr })
+end)
+
+-- here you can setup the language servers
+
+------------------------------------------------
+-- Lua
+
+require('lspconfig').lua_ls.setup({
+  capabilities = lsp_capabilities,
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT'
+      },
+      diagnostics = {
+        globals = { 'vim' },
+      },
+      workspace = {
+        library = {
+          vim.env.VIMRUNTIME,
+        }
+      }
     }
-  end,
-  -- Next, you can provide a dedicated handler for specific servers.
-  -- For example, a handler override for the `rust_analyzer`:
-  --
+  }
+})
 
-  ["rust_analyzer"] = function()
+
+-- Rust
+
+require('lspconfig').rust_analyzer.setup({
+  capabilities = lsp_capabilities,
+  on_attach = function(client, bufnr)
     require("config.rust_tools")
   end
-}
+})
+
+
+-- Typescript
+
+require('lspconfig').tsserver.setup({
+  capabilities = lsp_capabilities,
+})
+
+-- Nixos
+require('lspconfig').nil_ls.setup({
+  capabilities = lsp_capabilities,
+})
+
+-- Omnisharp
+require('lspconfig').omnisharp.setup({
+  capabilities = lsp_capabilities,
+  cmd = { "OmniSharp" }
+})
+
+-- Python
+require 'lspconfig'.pyright.setup({
+  capabilites = lsp_capabilities,
+})
+
 
 -- luasnip setup
 local status_ok, luasnip = pcall(require, "luasnip")

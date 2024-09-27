@@ -9,8 +9,7 @@ local fn = vim.fn
 -- Automatically install packer
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system({
-    "git",
+  PACKER_BOOTSTRAP = fn.system({ "git",
     "clone",
     "--depth",
     "1",
@@ -54,44 +53,48 @@ return packer.startup(function(use)
   --------------------------------------------------
 
   -- LSP Setup
-  use { 'neovim/nvim-lspconfig',  -- Collection of configurations for built-in LSP client
-    requires = { 'hrsh7th/nvim-cmp',
-      'hrsh7th/cmp-nvim-lsp',     -- LSP source for nvim-cmp
-      'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
-      'L3MON4D3/LuaSnip',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-      'hrsh7th/cmp-cmdline',
+  -- use { 'neovim/nvim-lspconfig',  -- Collection of configurations for built-in LSP client
+  --   requires = { 'hrsh7th/nvim-cmp',
+  --     'hrsh7th/cmp-nvim-lsp',     -- LSP source for nvim-cmp
+  --     'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
+  --     'L3MON4D3/LuaSnip',
+  --     'hrsh7th/cmp-buffer',
+  --     'hrsh7th/cmp-path',
+  --     'hrsh7th/cmp-cmdline',
+  --     "lvimuser/lsp-inlayhints.nvim",
+  --     "kdheepak/cmp-latex-symbols",
+  --     -- "PaterJason/cmp-conjure"
+  --   },
+  --   srouces = {
+  --     {
+  --       name = "latex_symbols",
+  --       option = {
+  --         strategy = 0, -- mixed
+  --       },
+  --     },
+  --   },
+  --   config = function()
+  --     require('config.cmp');
+  --   end } -- Snippets plugin
+  --
+
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v3.x',
+    requires = {
+      --- Uncomment the two plugins below if you want to manage the language servers from neovim
+      -- {'williamboman/mason.nvim'},
+      -- {'williamboman/mason-lspconfig.nvim'},
+
+      { 'neovim/nvim-lspconfig' },
+      { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'L3MON4D3/LuaSnip' },
       "lvimuser/lsp-inlayhints.nvim",
-      "kdheepak/cmp-latex-symbols",
-      -- "PaterJason/cmp-conjure"
-    },
-    srouces = {
-      {
-        name = "latex_symbols",
-        option = {
-          strategy = 0, -- mixed
-        },
-      },
     },
     config = function()
       require('config.cmp');
-    end } -- Snippets plugin
-
-
-  --------------------------------------------------
-
-  -- Mason Setup
-  use {
-    "williamboman/mason.nvim",
-    requires = { "williamboman/mason-lspconfig.nvim" },
-    config = function()
-      require("mason").setup()
-      require("mason-lspconfig").setup()
-      --require("config.mason")
-    end,
-    run = ":MasonUpdate", -- :MasonUpdate updates registry contents
-
+    end
   }
 
   --------------------------------------------------
@@ -131,11 +134,10 @@ return packer.startup(function(use)
   --
   --
 
-  use { "ellisonleao/gruvbox.nvim",
+  use { "nyoom-engineering/oxocarbon.nvim",
     config = function()
-      require("gruvbox").setup()
       vim.o.background = "dark" -- or "light" for light mode
-      vim.cmd([[colorscheme gruvbox]])
+      vim.cmd([[colorscheme oxocarbon]])
     end
   }
 
@@ -190,7 +192,7 @@ return packer.startup(function(use)
 
   use {
     "nvim-telescope/telescope-file-browser.nvim",
-    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim",  },
+    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", },
     config = function()
       require("config.file-browser")
     end
@@ -212,7 +214,7 @@ return packer.startup(function(use)
 
   use { "moll/vim-bbye" }
 
-use { "nvim-neotest/nvim-nio" }
+  use { "nvim-neotest/nvim-nio" }
 
   use { "nvim-treesitter/nvim-treesitter",
     requires = { { "nvim-treesitter/nvim-treesitter-refactor" } },
